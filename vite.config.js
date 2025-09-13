@@ -9,22 +9,27 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver()]
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
-    }),
+      resolvers: [ElementPlusResolver()]
+    })
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      '@': path.resolve(__dirname, 'src')
     }
   },
   // base: './',
   build: {
     // sourcemap: true,
     commonjsOptions: {
-      strictRequires: true, // 兼容commonjs
+      strictRequires: true // 兼容commonjs
     }
+  },
+  server: {
+    open: false, // 自动启动浏览器
+    host: '0.0.0.0', // localhost
+    port: 8001 // 端口号
   }
 })
